@@ -3,7 +3,7 @@
 1 - Clonar el repositorio [FinalSim30-06] en una carpeta local o descargarlo como zip y extrerlo.
 2 - Utilizar Apache Netbeans IDE 12.0 o superior.
 3 - Ejecute el IDE Netbeans
-4 - Busque el proyecto en el PATH donde descargo el repositorio.
+4 - Abra la pestaña File -> Open Proyect y Busque el proyecto en el PATH donde descargo el repositorio.
 
 # DISTRIBUCION
 
