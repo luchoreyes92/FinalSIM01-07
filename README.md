@@ -1,4 +1,4 @@
-# FinalSIM30-06
+# FinalSIM01-07
 
 1 - Clonar el repositorio [FinalSim30-06] en una carpeta local o descargarlo como zip y extrerlo.
 2 - Utilizar Apache Netbeans IDE 12.0 o superior.
