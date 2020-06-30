@@ -36,6 +36,7 @@ public class SimularB {
     public Object[] simularB(Object[] filaAnterior) {
         inicializarFila();
         prioridadColaFormularioSolicitante();
+        quitarSolicitanteFueraSistema();
         if (esLlegadaSolicitante((Float) filaAnterior[3])) {
             this.filaNueva[0] = (Float) filaAnterior[3];
             Solicitante solicitante = new Solicitante(this.nroSolicitante, (Float) this.filaNueva[0]);
@@ -258,6 +259,10 @@ public class SimularB {
 
     public ArrayList<Solicitante> obtenerSolicitantes() {
         return this.solicitantes;
+    }
+    
+    private void quitarSolicitanteFueraSistema() {
+        this.solicitantes.removeIf(x-> x.getEstado().equals(Estado.FUERA_SISTEMA)); //To change body of generated methods, choose Tools | Templates.
     }
 
     private void crearEmpleados() {

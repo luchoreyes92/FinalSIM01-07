@@ -858,6 +858,7 @@ public class Principal extends javax.swing.JFrame {
     private void simularAlternativaA(Double mediaPoissonLlegada, Double mediaExpLlenarForm,
             Integer unifAtencionA, Integer unifAtencionB, Double tiempoSimular, Float desde, Float hasta) {
 
+        System.out.println(new Date());
         Simular simular = new Simular(mediaPoissonLlegada, mediaExpLlenarForm,
                 unifAtencionA, unifAtencionB);
 
@@ -874,7 +875,7 @@ public class Principal extends javax.swing.JFrame {
         while (this.reloj <= tiempoSimular) {
             this.filaNuevaA = simular.simularA(this.filaAnteriorA);
             this.reloj = (Float) this.filaNuevaA[0];
-
+            if(this.reloj> tiempoSimular) break;
             if (this.reloj >= desde && this.reloj <= hasta) {
                 modelo.addRow(this.filaNuevaA);
                 crearColumnasClientesA(simular, modeloCliente);
@@ -888,13 +889,17 @@ public class Principal extends javax.swing.JFrame {
             //   crearTablaEcuacionDiferencial(simular, modeloEcDif);
         }
         
-        this.tx_atendidosA.setText(((Integer)this.filaNuevaA[18]).toString());
-        this.tx_promedioA.setText(""+((Float) this.filaNuevaA[19] / (Integer) this.filaNuevaA[18]));
+        this.tx_atendidosA.setText(((Integer)this.filaAnteriorA[18]).toString());
+        this.tx_promedioA.setText(""+((Float) this.filaAnteriorA[19] / (Integer) this.filaAnteriorA[18]));
+        System.out.println(new Date());
         
     }
 
     private void simularAlternativaB(Double mediaPoissonLlegada, Double mediaAtencion,
             Double tiempoSimular,Float desde,Float hasta) {
+        
+        System.out.println(new Date());
+        
         SimularB simular = new SimularB(mediaPoissonLlegada,mediaAtencion);
         inicializarFilaB();
 
@@ -925,6 +930,8 @@ public class Principal extends javax.swing.JFrame {
         
         this.tx_atendidosB.setText(((Integer)this.filaNuevaB[15]).toString());
         this.tx_promedioB.setText(""+((Float) this.filaNuevaB[16] / (Integer) this.filaNuevaB[15]));
+        
+        System.out.println(new Date());
     }
 
     private void crearColumnasClientesB(SimularB simular, DefaultTableModel modelo2) {

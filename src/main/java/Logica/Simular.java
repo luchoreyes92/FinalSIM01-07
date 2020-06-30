@@ -98,7 +98,6 @@ public class Simular {
                     llenarFilaEmpleados(index, filaAnterior);
                     this.filaNueva[7] = "-";
                     this.filaNueva[8] = "-";
-                    this.filaNueva[9] = "-";
                     this.filaNueva[17] = (Integer) filaAnterior[17];
                 }
                 this.filaNueva[18] = (Integer) filaAnterior[18] + 1;
