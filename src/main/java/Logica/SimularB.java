@@ -126,10 +126,6 @@ public class SimularB {
         }
     }
 
-    private Solicitante obtenerSolicitanteCola() {
-        return this.colaSolicitantes.get(0);
-    }
-
     private Integer setearSolicitante(Integer nroSolicitante) {
         Integer index = this.solicitantes.indexOf(this.solicitantes.stream().
                 filter(x -> x.getNumero().equals(nroSolicitante)).findFirst().get());
@@ -170,21 +166,6 @@ public class SimularB {
                 : this.empleados.stream().allMatch(x -> x.getEstado().equals(Estado.OCUPADO));
     }
 
-    private Empleado ocuparProximoEmpleado() {
-        for (Empleado empleado : empleados) {
-            if (empleado.getEstado().equals(Estado.LIBRE)) {
-                return empleado;
-            }
-        }
-        return null;
-    }
-
-    private Integer obtenerNuevoSolicitante() {
-        return this.colaFormularioSolicitantes.size() > 0
-                ? this.colaFormularioSolicitantes.
-                        get(this.colaFormularioSolicitantes.size() - 1).
-                        getNumero() + 1 : 1;
-    }
 
     private Integer generarRandom() {
         Integer random = Integer.parseInt(new DecimalFormat("0").format(Math.random() * 100));

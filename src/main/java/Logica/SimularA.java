@@ -10,13 +10,12 @@ import Distribuciones.Poisson;
 import Distribuciones.Uniforme;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
-import java.util.Collections;
 
 /**
  *
  * @author lucho
  */
-public class Simular {
+public class SimularA {
 
     private ArrayList<Empleado> empleados = new ArrayList<>();
     private ArrayList<Solicitante> solicitantes = new ArrayList<>();
@@ -29,7 +28,7 @@ public class Simular {
     private Double mediaPoissonLlegada, mediaExpLlenarFormulario;
     private Integer infUnifAtencion, supUnifAtencion;
 
-    public Simular(Double mediaPoissonLlegada, Double mediaExpLlenarFormulario, Integer infUnifAtencion, Integer supUnifAtencion) {
+    public SimularA(Double mediaPoissonLlegada, Double mediaExpLlenarFormulario, Integer infUnifAtencion, Integer supUnifAtencion) {
         this.mediaPoissonLlegada = mediaPoissonLlegada;
         this.mediaExpLlenarFormulario = mediaExpLlenarFormulario;
         this.infUnifAtencion = infUnifAtencion;
@@ -170,9 +169,6 @@ public class Simular {
         }
     }
 
-    private Solicitante obtenerSolicitanteCola() {
-        return this.colaSolicitantes.get(0);
-    }
 
     private Integer setearSolicitante(Integer nroSolicitante) {
         Integer index = this.solicitantes.indexOf(this.solicitantes.stream().
@@ -222,12 +218,6 @@ public class Simular {
         return null;
     }
 
-    private Integer obtenerNuevoSolicitante() {
-        return this.colaFormularioSolicitantes.size() > 0
-                ? this.colaFormularioSolicitantes.
-                        get(this.colaFormularioSolicitantes.size() - 1).
-                        getNumero() + 1 : 1;
-    }
 
     private Integer generarRandom() {
         Integer random = Integer.parseInt(new DecimalFormat("0").format(Math.random() * 100));
